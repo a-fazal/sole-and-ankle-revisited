@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { QUERIES, WEIGHTS } from '../../constants';
+import { QUERIES, WEIGHTS, COLORS } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -37,7 +37,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 };
 
 const CloseIcon = styled(Icon)`
-  float: right;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 `
 
 const Overlay = styled(DialogOverlay)`
@@ -49,16 +51,19 @@ const Overlay = styled(DialogOverlay)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: hsla(0, 100%, 100%, 0.9)
+  background: hsla(0, 100%, 0%, 0.9)
 `
 
 const Content = styled(DialogContent)`
-  postion: relative;
+  position: absolute;
+  height: 100%;
+  right: 0;
   background: white;
-  border-radius: 8px;
-  padding: 20px;
+  padding: 40px;
+  padding-right: 80px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
 
   a {
@@ -75,6 +80,7 @@ const Navigation = styled.nav`
   display: flex;
   gap: 8px;
   margin-bottom: 20px;
+  flex-direction: column;
 
   a {
     font-weight: ${WEIGHTS.medium};
@@ -85,5 +91,9 @@ const Footer = styled.footer`
   display: flex;
   gap: 8px;
   flex-direction: column;
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.75rem;
+  color: ${COLORS.gray[300]};
 `
 export default MobileMenu;
